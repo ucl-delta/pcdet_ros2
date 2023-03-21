@@ -28,7 +28,7 @@ This is a ROS 2 Wrapper for [`[OpenPCDet]`](https://github.com/open-mmlab/OpenPC
 Quick Installation compatible with the setup specified above:
 ```console
 git clone https://github.com/open-mmlab/OpenPCDet
-python3 -m pip install torch torchvision torchaudion
+python3 -m pip install torch torchvision torchaudio
 python3 -m pip install tensorflow
 python3 -m pip install spconv-cu117
 cd OpenPCDet
@@ -43,7 +43,7 @@ Please refer to [OpenPCDet's INSTALL.md](https://github.com/open-mmlab/OpenPCDet
 - [ ] This project provides a docker installation reference [DOCKER_INSTALL.md](docs/DOCKER_INSTALL.md) which is highly recommended.
 
 # Installation
-**Build the Packages**
+**<u>Build the Packages</u>**
 ```console
 # GOTO the ros 2 workspace
 cd src/
@@ -55,10 +55,10 @@ colcon build --symlink-install --packages-select ros2_numpy pcdet_ros2
 # Source the workspace
 ```
 
-**Download the weights**
+**<u>Download the weights</u>**
 <br>Example:
-- Download the `PV-RCNN` pre-trained weight for the `Kitti Dataset` [`[model-50M]`](https://drive.google.com/file/d/1lIOq4Hxr0W3qsX83ilQv0nk1Cls6KAr-/view?usp=sharing).
-- Copy the weight to the checkpoints folder of the `pcdet_ros2` packages.
+- Download the PV-RCNN pre-trained weight for the Kitti Dataset [`[model-50M]`](https://drive.google.com/file/d/1lIOq4Hxr0W3qsX83ilQv0nk1Cls6KAr-/view?usp=sharing).
+- Copy the weight to the checkpoints folder of the pcdet_ros2 package.
 
 Check [OpenPCDet's Model Zoo](https://github.com/open-mmlab/OpenPCDet#model-zoo) for available models and weights.
 
@@ -76,7 +76,7 @@ ros2 launch pcdet_ros2 pcdet.launch.py
 | config_file | Local Path to the configuration file for the model. |
 | model_file | Local Path to the pre-trained weight for the model. |
 | allow_memory_fractioning | Boolean to activate setting a limit to the GPU Usage. <br>&emsp; Used together with `device_memory_fraction`. |
-| allow_score_thresholding | Boolean to activate removal of low scored detections. <br>&emsp; Used together with `threshold_array`. |
+| allow_score_thresholding | Boolean to activate the removal of low scored detections. <br>&emsp; Used together with `threshold_array`. |
 | num_features | Parameter to specify data transformation of pointcloud. <br>&emsp; For `Kitti` the value is `4`. <br>&emsp; For `nuScenes` the value is `5`. |
 | device_id | ID for the GPU to be used. |
 | device_memory_fraction | GPU Memory (in GB) used for the detections. <br>&emsp; Used together with `allow_memory_fractioning`. |
