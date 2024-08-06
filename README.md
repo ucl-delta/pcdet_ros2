@@ -20,6 +20,7 @@ This is a ROS 2 Wrapper for [`[OpenPCDet]`](https://github.com/open-mmlab/OpenPC
 - [OpenPCDet Installation](#openpcdet-installation)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Usage with Docker](#docker)
 - [Parameters](#parameters)
 - [License](#license)
 - [Citation](#citation)
@@ -85,6 +86,26 @@ ros2 launch pcdet_ros2 pcdet.launch.py
 | device_id | ID for the GPU to be used. |
 | device_memory_fraction | GPU Memory (in GB) used for the detections. <br>&emsp; Used together with `allow_memory_fractioning`. |
 | threshold_array | Threshold values for low scoring detections. <br>&emsp; Used together with `allow_score_thresholding`. <br>&emsp; See the `config_file` for the list of detections. |
+
+# Docker
+
+To make things easier a docker container has been added to this repo which recreates the environment specified in this repository. Here are the usage instructions:
+
+1. Install Docker
+2. Install nvidia-container-toolkit
+3. Clone this repository into a workspace
+4. Run `./docker/build_container.sh` this will take a while and is about ¬20Gb
+5. To run the container run `./docker/run_container.sh`
+6. Then run ./run_pcdet.sh
+
+Note you may need to manually run_pcdet.sh
+```bash
+source /opt/ros/humble/setup.bash
+source /ros2_ws/install/setup.bash
+ros2 launch pcdet_ros2 pcdet.launch.py
+```
+
+Note minor issues with using shared memory for pointcloud transfer. pcdet_ros2 expects a pointcloud on2 `/kitti/pointcloud` and returns `vision_msgs/Detection3DArray.msg` on `/cloud_detections`
 
 # License
 
