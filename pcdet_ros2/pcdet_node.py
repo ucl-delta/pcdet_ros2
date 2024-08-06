@@ -104,7 +104,7 @@ class PCDetROS(Node):
             out_msg.detections = []
             self.__pub_det__.publish(out_msg)
 
-    def __convertCloudFormat__(self, cloud_array, remove_nans=True, dtype=np.float):
+    def __convertCloudFormat__(self, cloud_array, remove_nans=True, dtype=float):
         '''
         '''
         if remove_nans:
