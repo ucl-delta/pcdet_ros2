@@ -6,6 +6,7 @@ id -u ros &>/dev/null || adduser --quiet --disabled-password --gecos '' --uid ${
 
 # Build ROS dependency
 echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
+echo "source /ros2_ws/install/setup.bash" >> ~/.bashrc
 echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 # echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
 source ~/.bashrc

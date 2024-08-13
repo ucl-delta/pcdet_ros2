@@ -21,4 +21,9 @@ fi
 # https://github.com/pytorch/extension-cpp/issues/71#issuecomment-824919813 
 git clone https://github.com/open-mmlab/OpenPCDet.git /lib/OpenPCDet --depth=1
 cd /lib/OpenPCDet 
+
+# Replace all np.int with just int as will raise error. 
+find . -type f -name "*.py" -exec sed -i 's/\bnp\.int\b/int/g' {} +
+
+# Build OpenPCDet
 python3 setup.py develop

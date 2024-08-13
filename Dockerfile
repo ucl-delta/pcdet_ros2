@@ -124,7 +124,7 @@ COPY docker/build_OpenPCDet.sh /build_OpenPCDet.sh
 RUN /bin/bash /build_OpenPCDet.sh
 
 # Install pcdet_ros2
-COPY . /ros2_ws/src/pcdet_ros2
+COPY pcdet_ros2 /ros2_ws/src/pcdet_ros2
 RUN mkdir -p /ros2_ws/src \
         && git clone https://github.com/Box-Robotics/ros2_numpy -b humble /ros2_ws/src/ros2_numpy \
         && cd /ros2_ws \
