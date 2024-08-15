@@ -209,7 +209,7 @@ class PCDetROS(Node):
         self.sub_cloud = self.create_subscription(PointCloud2, 
                                                   "input", 
                                                   self.__cloudCB__, 
-                                                  10)
+                                                  rclpy.qos.qos_profile_sensor_data)
         self.__pub_det__ = self.create_publisher(Detection3DArray,
                                                  "output",
                                                  10)
