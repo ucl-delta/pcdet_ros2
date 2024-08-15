@@ -34,8 +34,8 @@ docker run \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
-    --volume="$PWD/../ros2_pytorch:/ros2_ws/src/ros2_pytorch/:rw" \
     --volume="/dev:/dev:rw" \
+    --volume="`PWD`/checkpoints:/ros2_ws/src/pcdet_ros2/pcdet_ros2/checkpoints" \
     --name="ros2_torch_container" \
     --runtime=nvidia \
     --network=host \
